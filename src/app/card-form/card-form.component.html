@@ -1,0 +1,34 @@
+<!-- [expiration]="cardForm.get('expiration').value"> 
+<app-card  [name1]="cardForm.controls.name.value"
+[cardNumber1]="cardForm.controls.cardNumber.value"
+[expiration1]="cardForm.controls.expiration.value">
+</app-card>
+-->
+<app-card 
+[name1]="cardForm.controls.name.value"
+[cardNumber1]="cardForm.controls.cardNumber.value"
+[expiration1]="cardForm.controls.expiration.value"
+></app-card>
+
+<form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+<app-input label="Ime i Prezime" [control]="cardForm.get('name')"></app-input>
+<app-input label="Broj kartice" [control]="cardForm.get('cardNumber')"></app-input>
+<app-input label="Datum isteka kartice (MM/YY)1" [control]="cardForm.get('expiration')"></app-input>
+<app-input label="Sigurnosni kod" [control]="cardForm.get('securityCode')"></app-input>
+
+<div class="buttons">
+    <button class='button is-primary' [disabled] = "cardForm.invalid" type="submit">Submit</button>
+    <button class='button is-warning' (click)="onResetClick()" type='button'>Reset</button>
+</div>
+<!--
+<div class="buttons">
+    <button class='button is-primary' [disabled]='cardForm.invalid'>Submit</button>
+
+    <button class='button is-warning' (click)='onResetClick()'>Reset</button>
+</div>
+-->
+
+
+</form>
+
+
